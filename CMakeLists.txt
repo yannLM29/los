@@ -18,8 +18,11 @@ set(OPENGL_DEPS
 add_subdirectory(./src/external/glad ${CMAKE_BINARY_DIR}/glad)
 
 # Sources
+
 set(LOS_SRC_FILES
-    
+    src/Renderer.hpp
+    src/Renderer.cpp
+    src/wrappers/IWindow.hpp    
 )
 
 source_group(los FILES ${LOS_SRC_FILES})
@@ -36,4 +39,5 @@ target_link_libraries(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     ./src
+    ./src/types
 )
