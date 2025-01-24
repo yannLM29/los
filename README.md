@@ -1,2 +1,2 @@
-# los
+# LOS
 Light OpenGL Scene
