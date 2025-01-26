@@ -1,7 +1,11 @@
 #include "FileLoader.hpp"
+#include "drawables/Image.hpp"
 
 #include <glad/glad.h>
 #include <stdexcept>
+
+#define STB_IMAGE_IMPLEMENTATION
+#include <external/stb_image.h>
 
 namespace los
 {
@@ -60,6 +64,18 @@ unsigned int FileLoader::CreateShaderProgram(int inVertexShaderId, int inFragmen
 	}
 
     return shader_program;
+}
+
+std::shared_ptr<Image> LoadImage(const std::string &inPath, unsigned int inFormat) {
+	stbi_set_flip_vertically_on_load(true);  
+
+	int width, height, nbChannels;
+	unsigned char *data = stbi_load(inPath.c_str(), &width, &height, &nbChannels, 0);
+
+	auto out = std::make_shared<Image>(data, width, height, nbChannels);
+
+	stbi_image_free(data);
+	return std::move(out);
 }
 
 } // namespace los
