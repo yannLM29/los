@@ -20,11 +20,10 @@ add_subdirectory(./src/external/glad ${CMAKE_BINARY_DIR}/glad)
 # Sources
 
 set(LOS_SRC_FILES
-    src/Renderer.hpp
     src/Renderer.cpp
+    src/FileLoader.cpp    
     src/wrappers/IWindow.hpp
-    src/wrappers/FileLoader.hpp
-    src/wrappers/FileLoader.cpp    
+    src/wrappers/glfw/GlfwWindow.cpp
 )
 
 source_group(los FILES ${LOS_SRC_FILES})
