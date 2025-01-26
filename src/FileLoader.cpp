@@ -66,7 +66,7 @@ unsigned int FileLoader::CreateShaderProgram(int inVertexShaderId, int inFragmen
     return shader_program;
 }
 
-std::shared_ptr<Image> LoadImage(const std::string &inPath, unsigned int inFormat) {
+std::shared_ptr<Image> LoadImage(const std::string &inPath) {
 	stbi_set_flip_vertically_on_load(true);  
 
 	int width, height, nbChannels;
