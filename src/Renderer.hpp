@@ -4,16 +4,11 @@
 #include <glad/glad.h>
 #include <memory>
 #include <map>
+#include "ShaderTypes.hpp"
 
 using vec3 = glm::vec3;
 namespace los
 {
-
-enum eShaderTypes {
-    kMonochrome = 0,
-    kColored,
-    kTextured
-};
 
 enum eDrawingModes {
     kFilled = 0,
