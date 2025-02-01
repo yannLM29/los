@@ -61,7 +61,7 @@ public:
 
     template<typename T>
     bool setUniformofShader(eShaderTypes type, const std::string &name, const T &value) {
-
+        return false;
     }
 };
     

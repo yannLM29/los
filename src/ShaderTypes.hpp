@@ -4,7 +4,8 @@ namespace los
 {
 
 enum eShaderTypes {
-    kMonochrome = 0,
+    kNoSurface = 0,
+    kMonochrome,
     kColored,
     kTextured
 };
