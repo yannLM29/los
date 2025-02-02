@@ -4,6 +4,7 @@
 #include <glad/glad.h>
 #include <memory>
 #include <map>
+#include <string>
 #include "ShaderTypes.hpp"
 
 using vec3 = glm::vec3;
@@ -59,9 +60,8 @@ public:
         glLineWidth(mLineWidth);
     }
 
-    template<typename T>
-    bool setUniformofShader(eShaderTypes type, const std::string &name, const T &value) {
-        return false;
+    int getUniformOfShader(eShaderTypes type, const std::string &name) {
+        return glGetUniformLocation(mShaders[type], name.c_str());
     }
 };
     

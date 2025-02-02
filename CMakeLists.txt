@@ -25,6 +25,7 @@ set(LOS_SRC_FILES
     src/wrappers/IWindow.hpp
     src/wrappers/glfw/GlfwWindow.cpp
     src/drawables/object/Mesh.cpp
+    src/drawables/object/Object.cpp
 )
 
 source_group(los FILES ${LOS_SRC_FILES})

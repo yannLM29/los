@@ -33,6 +33,10 @@ public:
         }
         return kNoSurface;
     }
+
+    unsigned int getSize() {
+        return mNbOfTriangles;
+    }
 };
 
 } // namespace los

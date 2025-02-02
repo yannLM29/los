@@ -19,9 +19,10 @@ Renderer::Renderer(IWindow &window_ref, FileLoader &fileloader_ref)
         this->setSize(w,h);
     });
 
-    // mShaders[kMonochrome] = mFileLoaderRef.LoadShaderProgram("data/shaders/", "data/shaders/");
-    // mShaders[kColored] = mFileLoaderRef.LoadShaderProgram("data/shaders/", "data/shaders/");
-    // mShaders[kTextured] = mFileLoaderRef.LoadShaderProgram("data/shaders/", "data/shaders/");
+    mShaders[kNoSurface] = mFileLoaderRef.LoadShaderProgram("data/shaders/basic-vertex.glsl", "data/shaders/gray-fragment.glsl");
+    mShaders[kMonochrome] = mFileLoaderRef.LoadShaderProgram("data/shaders/basic-vertex.glsl", "data/shaders/monochrome-fragment.glsl");
+    mShaders[kColored] = mFileLoaderRef.LoadShaderProgram("data/shaders/color-vertex.glsl", "data/shaders/color-fragment.glsl");
+    mShaders[kTextured] = mFileLoaderRef.LoadShaderProgram("data/shaders/texture-vertex.glsl", "data/shaders/texture-fragment.glsl");
 
     mCamera = nullptr;
 	
