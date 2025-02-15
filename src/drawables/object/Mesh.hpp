@@ -3,21 +3,22 @@
 #include <memory>
 #include <vector>
 #include "ShaderTypes.hpp"
-#include "drawables/object/ISurface.hpp"
+#include "drawables/object/surfaces/ISurface.hpp"
 
 namespace los
 {
 
 class Mesh
 {
+public:
+    inline static unsigned int sTriangleSize = 3;
+    
 private:
     std::unique_ptr<ISurface> mSurface;
     unsigned int mVAO;
     unsigned int mVBO;
 
     unsigned int mNbOfTriangles;
-
-    inline static unsigned int sTriangleSize = 3;
 
 public:
     Mesh(std::unique_ptr<ISurface> surface, const std::vector<float> &data);
@@ -36,6 +37,12 @@ public:
 
     unsigned int getSize() {
         return mNbOfTriangles;
+    }
+
+    inline void bindSurface(Renderer &renderer) {
+        if(mSurface) {
+            mSurface->bind(renderer);
+        }
     }
 };
 

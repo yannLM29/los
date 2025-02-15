@@ -1,6 +1,8 @@
 #include "Renderer.hpp"
+#include "Camera.hpp"
 #include "FileLoader.hpp"
 #include "wrappers/IWindow.hpp"
+
 #include <stdexcept>
 
 namespace los
@@ -42,9 +44,16 @@ Renderer::~Renderer() {
 
 glm::mat4x4 Renderer::getProjectionMatrix() const {
     if(mCamera) {
-
+        return mCamera->getProjection();
     }
-    return glm::mat4x4(1);
+    return sDefaultProjection;
+}
+
+glm::mat4x4 Renderer::getViewMatrix() const {
+    if(mCamera) {
+        return mCamera->getView();
+    }
+    return sDefaultView;
 }
 
 void Renderer::clearScreen() {

@@ -21,11 +21,14 @@ add_subdirectory(./src/external/glad ${CMAKE_BINARY_DIR}/glad)
 
 set(LOS_SRC_FILES
     src/Renderer.cpp
-    src/FileLoader.cpp    
+    src/FileLoader.cpp
+    src/Camera.cpp    
     src/wrappers/IWindow.hpp
     src/wrappers/glfw/GlfwWindow.cpp
     src/drawables/object/Mesh.cpp
     src/drawables/object/Object.cpp
+    src/drawables/object/surfaces/SurfaceTextured.cpp
+    src/drawables/object/surfaces/SurfaceMonochrome.cpp
 )
 
 source_group(los FILES ${LOS_SRC_FILES})

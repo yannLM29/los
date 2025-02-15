@@ -2,7 +2,6 @@
 #include "Renderer.hpp"
 #include "drawables/object/Mesh.hpp"
 #include <glad/glad.h>
-#include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
@@ -24,17 +23,20 @@ void Object::draw(Renderer &renderer) {
         return;
     }
 
+    // shader program
     renderer.useShader(mMesh->getRequiredShaderType());
-    glBindVertexArray(mMesh->getVao());
 
+    // bindings
+    glBindVertexArray(mMesh->getVao());
+    mMesh->bindSurface(renderer);
+    
     // transformations 
-    // gestion de la couleur mColor
     auto proj_loc = renderer.getUniformOfShader(mMesh->getRequiredShaderType(), "projection");
-    auto proj = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+    auto proj = renderer.getProjectionMatrix();
     glUniformMatrix4fv(proj_loc, 1, GL_FALSE, glm::value_ptr(proj));
 
     auto view_loc = renderer.getUniformOfShader(mMesh->getRequiredShaderType(), "view");
-    glm::mat4 view(1);
+    auto view = renderer.getViewMatrix();
     glUniformMatrix4fv(view_loc, 1, GL_FALSE, glm::value_ptr(view));
 
     auto model_loc = renderer.getUniformOfShader(mMesh->getRequiredShaderType(), "model");

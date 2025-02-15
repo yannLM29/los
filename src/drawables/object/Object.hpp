@@ -39,7 +39,7 @@ public:
         mPosition = position;
     }
     void setAngle(const glm::vec3 &angle) override {
-        mRotation = angle;
+        mRotation = glm::mod(angle, 360.0f);
     }
 
     void setScale(const glm::vec3 &scale) override {
@@ -47,13 +47,12 @@ public:
     }
 
     void move(const glm::vec3 &move_vector) override {
-        mPosition += move_vector;
+        setPos(mPosition + move_vector);
     }
 
     void rotate(const glm::vec3 &move_rotation) override {
-        mRotation += move_rotation;
+        setAngle(mRotation + move_rotation);
     }
-
 
     glm::mat4 getTransformationMatrix() const;
 };
