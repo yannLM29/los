@@ -29,6 +29,7 @@ set(LOS_SRC_FILES
     src/drawables/object/Object.cpp
     src/drawables/object/surfaces/SurfaceTextured.cpp
     src/drawables/object/surfaces/SurfaceMonochrome.cpp
+    src/drawables/grid/Grid.cpp
 )
 
 source_group(los FILES ${LOS_SRC_FILES})
