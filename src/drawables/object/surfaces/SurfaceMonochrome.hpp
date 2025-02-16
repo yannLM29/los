@@ -14,15 +14,15 @@ private:
 public:
     SurfaceMonochrome(const glm::vec3 &color);
 
-    eShaderTypes getRequiredShaderType() const {
+    eShaderTypes getRequiredShaderType() const override {
         return eShaderTypes::kMonochrome;
     };
 
-    bool initialiseParamPtrAttr(unsigned int param_ptr_id) {
+    bool initialiseParamPtrAttr(unsigned int param_ptr_id) override {
         return true;
     }
 
-    void bind(Renderer &renderer);
+    void bind(Renderer &renderer) override;
 };
 
 
