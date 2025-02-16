@@ -63,9 +63,6 @@ void Grid::draw(Renderer &renderer) {
     auto model_loc = renderer.getUniformOfShader(sShaderType, "model");
     glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(getTransformationMatrix()));
 
-    auto color_loc = renderer.getUniformOfShader(sShaderType, "color");
-    glUniform3fv(color_loc, 1, glm::value_ptr(mGridColor));
-
     glDrawArrays(GL_LINES, 0, mNbOfLines);
 }
 
@@ -104,6 +101,10 @@ std::vector<glm::vec3> createGridData(float step, float width, float height) {
         out.emplace_back(vec3{x_start, 0.f, z_start + i * step});
         out.emplace_back(vec3{x_end, 0.f, z_start + i * step});
     }
+
+    out.emplace_back(vec3{0.0f, -10.0f, 0.0f});
+    out.emplace_back(vec3{0.0f, 10.0f, 0.0f});
+
     return out;
 }
 

@@ -26,7 +26,7 @@ private:
 
     unsigned int mNbOfLines; 
 
-    inline static eShaderTypes sShaderType = eShaderTypes::kMonochrome;
+    inline static eShaderTypes sShaderType = eShaderTypes::kGrid;
 
 public:
     Grid(float w, float h, float step, float snapping_step);
