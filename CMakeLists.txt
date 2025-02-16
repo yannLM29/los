@@ -29,6 +29,7 @@ set(LOS_SRC_FILES
     src/drawables/object/Object.cpp
     src/drawables/object/surfaces/SurfaceTextured.cpp
     src/drawables/object/surfaces/SurfaceMonochrome.cpp
+    src/drawables/object/surfaces/SurfaceColored.cpp
     src/drawables/grid/Grid.cpp
 )
 
