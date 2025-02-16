@@ -25,6 +25,10 @@ private:
 
 public:
 
+    inline glm::vec3 getPosition() {
+        return mCameraPos;
+    }
+
     inline void setCameraPosition(const glm::vec3 &value) {
         mCameraPos = value;
     }
