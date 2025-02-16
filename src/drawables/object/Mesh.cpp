@@ -36,7 +36,7 @@ Mesh::Mesh(std::unique_ptr<ISurface> surface, const std::vector<float> &data)
         mSurface->initialiseParamPtrAttr(1);
     }
 
-    mNbOfTriangles = data.size() / sTriangleSize;
+    mNbOfTriangles = data.size() / 3;
 }
 
 Mesh::~Mesh() {

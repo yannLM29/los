@@ -70,11 +70,10 @@ public:
     int getUniformOfShader(eShaderTypes type, const std::string &name) {
         auto location = glGetUniformLocation(mShaders[type], name.c_str());
         if(location < 0) {
-            std::cerr << "Renderer can't find " << name << "\n";
+            std::cerr << "Renderer failed to find " << name << "\n";
         }
         return location;
     }
 };
-    
-    
+     
 } // namespace los
