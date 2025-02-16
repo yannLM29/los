@@ -2,6 +2,7 @@
 #include "Camera.hpp"
 #include "FileLoader.hpp"
 #include "wrappers/IWindow.hpp"
+#include "drawables/grid/Grid.hpp"
 
 #include <stdexcept>
 
@@ -42,6 +43,10 @@ Renderer::~Renderer() {
 
 }
 
+void Renderer::setGrid(std::unique_ptr<Grid> grid) {
+    mGrid = std::move(grid);
+}
+
 glm::mat4x4 Renderer::getProjectionMatrix() const {
     if(mCamera) {
         return mCamera->getProjection();
@@ -58,6 +63,12 @@ glm::mat4x4 Renderer::getViewMatrix() const {
 
 void Renderer::clearScreen() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    if(mGrid && mCamera) {
+        auto cam = mCamera->getPosition();
+        mGrid->setPos(glm::vec3(cam.x, 0, cam.y));
+        mGrid->draw(*this);
+    }
 }
 
 void Renderer::useShader(eShaderTypes type) {

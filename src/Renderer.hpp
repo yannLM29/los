@@ -22,6 +22,7 @@ enum eDrawingModes {
 class IWindow;
 class FileLoader;
 class Camera;
+class Grid;
 
 class Renderer
 {
@@ -30,6 +31,8 @@ private:
     FileLoader &mFileLoaderRef;
 
     std::shared_ptr<Camera> mCamera;
+    std::unique_ptr<Grid> mGrid;
+
     glm::vec4 mBackgroundColor;
     float mLineWidth;
     
@@ -56,6 +59,8 @@ public:
     inline void setCamera(std::shared_ptr<Camera> camera) {
         mCamera = camera;
     }
+    
+    void setGrid(std::unique_ptr<Grid> grid);
 
     inline void setBackgroundColor(const glm::vec4 &background_color) {
         mBackgroundColor = background_color;
