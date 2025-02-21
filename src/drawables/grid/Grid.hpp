@@ -26,7 +26,8 @@ private:
 
     unsigned int mNbOfLines; 
 
-    inline static eShaderTypes sShaderType = eShaderTypes::kGrid;
+    inline static const eShaderTypes sShaderType = eShaderTypes::kGrid;
+    inline static const glm::vec3 sGridColor = glm::vec3(0.5f, 0.5f, 0.5f);
 
 public:
     Grid(float w, float h, float step, float snapping_step);

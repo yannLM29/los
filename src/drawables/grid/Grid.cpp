@@ -63,6 +63,9 @@ void Grid::draw(Renderer &renderer) {
     auto model_loc = renderer.getUniformOfShader(sShaderType, "model");
     glUniformMatrix4fv(model_loc, 1, GL_FALSE, glm::value_ptr(getTransformationMatrix()));
 
+    auto color_loc = renderer.getUniformOfShader(sShaderType, "color");
+    glUniform3fv(color_loc, 1, glm::value_ptr(sGridColor));
+
     glDrawArrays(GL_LINES, 0, mNbOfLines);
 }
 
