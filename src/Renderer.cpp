@@ -35,7 +35,7 @@ Renderer::Renderer(IWindow &window_ref, FileLoader &fileloader_ref)
 	
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    setBackgroundColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
+    setBackgroundColor(sDefaultBackgroundColor);
     setLineWidth(1.0f);
 
 }

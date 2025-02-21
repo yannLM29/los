@@ -58,7 +58,7 @@ public:
 
     void draw(Renderer &renderer) override;
 
-    glm::mat4 getTransformationMatrix() const;
+    glm::mat4 getTransformationMatrix() const override;
     void updateGridPosition(const glm::vec3 &camera_position);
 };
 

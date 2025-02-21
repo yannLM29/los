@@ -10,6 +10,9 @@ namespace los
 class Renderer;
 class Mesh;
 
+/**
+ * Class that contains a mesh who can be placed in the world and displayed
+ */
 class Object : public IDrawable
 {
 private:
@@ -54,7 +57,7 @@ public:
         setAngle(mRotation + rotation_vector);
     }
 
-    glm::mat4 getTransformationMatrix() const;
+    glm::mat4 getTransformationMatrix() const override;
 };
 
 } // namespace los

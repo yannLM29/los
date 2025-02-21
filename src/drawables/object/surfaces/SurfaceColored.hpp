@@ -21,7 +21,7 @@ public:
     eShaderTypes getRequiredShaderType() const override {
         return eShaderTypes::kColored;
     };
-
+    
     bool initialiseParamPtrAttr(unsigned int param_ptr_id) override;
     
     void bind(Renderer &renderer) {

@@ -40,6 +40,7 @@ private:
 
     inline static const glm::mat4x4 sDefaultProjection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
     inline static const glm::mat4x4 sDefaultView = glm::mat4x4(1);
+    inline static const glm::vec4 sDefaultBackgroundColor = glm::vec4(0.05f, 0.05f, 0.05f, 1.0f);
 
 public:
     Renderer(IWindow &window_ref, FileLoader &fileloader_ref);
