@@ -81,6 +81,7 @@ glm::mat4 Grid::getTransformationMatrix() const {
 
 void Grid::updateGridPosition(const glm::vec3 &camera_position) {
     auto new_grid_position = glm::floor(camera_position / mSnappingStep) * mSnappingStep; 
+    new_grid_position.y = 0;
     setPos(new_grid_position);
 }   
 
