@@ -17,12 +17,12 @@ Grid::Grid(float w, float h, float step, float snapping_step)
 {
     glGenVertexArrays(1, &mVAO);
     if(mVAO == 0) {
-        throw std::runtime_error("Mesh failed to create VAO");
+        throw std::runtime_error("Grid failed to create VAO");
     }
 
     glGenBuffers(1, &mVBO);
     if(mVBO == 0) {
-        throw std::runtime_error("Mesh failed to create VBO");
+        throw std::runtime_error("Grid failed to create VBO");
     }
 
     glBindVertexArray(mVAO);

@@ -67,7 +67,7 @@ void Renderer::clearScreen() {
 
     if(mGrid && mCamera) {
         auto cam = mCamera->getPosition();
-        mGrid->setPos(glm::vec3(cam.x, 0, cam.y));
+        mGrid->updateGridPosition(cam);
         mGrid->draw(*this);
     }
 }

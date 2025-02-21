@@ -9,6 +9,11 @@ uniform mat4 model;
 
 void main()
 {
-    gl_Position = projection * view * model * vec4(aPos, 1.0f);
-    position = aPos;
+    if(aPos.y != 0) {
+        gl_Position = projection * view * vec4(aPos, 1.0f);
+    } else {
+        gl_Position = projection * view * model * vec4(aPos, 1.0f);
+    }
+    vec4 temp_pos = model * vec4(aPos, 1.0f);
+    position = temp_pos.xyz;
 }
