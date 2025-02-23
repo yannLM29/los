@@ -29,21 +29,21 @@ public:
         return mCameraPos;
     }
 
-    inline void setCameraPosition(const glm::vec3 &value) {
+    inline void setPosition(const glm::vec3 &value) {
         mCameraPos = value;
     }
     
     inline void moveCameraX(float value) {
-        mCameraPos = mCameraPos + (mCameraRight * value);
+        setPosition(mCameraPos + (mCameraRight * value));
     }
 
     inline void moveCameraZ(float value) {
         mCameraTarget = mCameraPos - glm::vec3(0.0f, 0.0f, 1.0f);
-        mCameraPos = mCameraPos + (mCameraFront * value);
+        setPosition(mCameraPos + (mCameraFront * value));
     }
 
     inline void moveCameraY(float value) {
-        mCameraPos = mCameraPos + (glm::vec3(0.0f, 1.0f, 0.0f)  * value);
+        setPosition(mCameraPos + (glm::vec3(0.0f, 1.0f, 0.0f)  * value));
     }
 
     inline void turnYaw(float value) {

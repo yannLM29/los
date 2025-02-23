@@ -16,17 +16,17 @@ FileLoader::FileLoader(std::function<std::vector<uint8_t>(const std::string&)> l
 
 }
 
-unsigned int FileLoader::LoadShaderProgram(const std::string &vertex_path, const std::string &fragment_path) {
+unsigned int FileLoader::loadShaderProgram(const std::string &vertex_path, const std::string &fragment_path) {
     auto vertex_text = mLoadFile(vertex_path);
-    auto vertex_shader = CompileShader(std::string(vertex_text.begin(), vertex_text.end()), GL_VERTEX_SHADER);
+    auto vertex_shader = compileShader(std::string(vertex_text.begin(), vertex_text.end()), GL_VERTEX_SHADER);
 
     auto fragment_text = mLoadFile(fragment_path);
-    auto fragment_shader = CompileShader(std::string(fragment_text.begin(), fragment_text.end()), GL_FRAGMENT_SHADER);
+    auto fragment_shader = compileShader(std::string(fragment_text.begin(), fragment_text.end()), GL_FRAGMENT_SHADER);
 
-    return CreateShaderProgram(vertex_shader, fragment_shader);
+    return createShaderProgram(vertex_shader, fragment_shader);
 }
 
-unsigned int FileLoader::CompileShader(const std::string &shader_data, int shader_type) {
+unsigned int FileLoader::compileShader(const std::string &shader_data, int shader_type) {
     const char *vertex_shader_source = shader_data.c_str();
 
 	unsigned int vertex_shader;
@@ -47,7 +47,7 @@ unsigned int FileLoader::CompileShader(const std::string &shader_data, int shade
     return vertex_shader;
 }
 
-unsigned int FileLoader::CreateShaderProgram(int inVertexShaderId, int inFragmentShaderId) {
+unsigned int FileLoader::createShaderProgram(int inVertexShaderId, int inFragmentShaderId) {
     unsigned int shader_program;
 	shader_program = glCreateProgram();
 
@@ -66,11 +66,11 @@ unsigned int FileLoader::CreateShaderProgram(int inVertexShaderId, int inFragmen
     return shader_program;
 }
 
-std::shared_ptr<Image> FileLoader::LoadImage(const std::string &inPath) {
+std::shared_ptr<Image> FileLoader::loadImage(const std::string &path) {
 	stbi_set_flip_vertically_on_load(true); 
 	 
 	int width, height, nbChannels;
-	unsigned char *data = stbi_load(inPath.c_str(), &width, &height, &nbChannels, 0);
+	unsigned char *data = stbi_load(path.c_str(), &width, &height, &nbChannels, 0);
 
 	auto out = std::make_shared<Image>(data, width, height, nbChannels);
 
