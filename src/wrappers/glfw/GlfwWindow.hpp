@@ -40,6 +40,9 @@ public:
         
     }
 
+    inline GLFWwindow* getWindowRawPointer() {
+        return mWindow;
+    }
 };
 
 
