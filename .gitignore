@@ -33,5 +33,6 @@
 
 # Folders
 /build
-/doc
+/doc/*
+!doc/class-diagram.png
 /src/external

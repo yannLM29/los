@@ -22,11 +22,11 @@ Renderer::Renderer(IWindow &window_ref, FileLoader &fileloader_ref)
         this->setSize(w,h);
     });
 
-    mShaders[kNoSurface] = mFileLoaderRef.LoadShaderProgram("data/shaders/basic-vertex.glsl", "data/shaders/gray-fragment.glsl");
-    mShaders[kMonochrome] = mFileLoaderRef.LoadShaderProgram("data/shaders/basic-vertex.glsl", "data/shaders/monochrome-fragment.glsl");
-    mShaders[kColored] = mFileLoaderRef.LoadShaderProgram("data/shaders/color-vertex.glsl", "data/shaders/color-fragment.glsl");
-    mShaders[kTextured] = mFileLoaderRef.LoadShaderProgram("data/shaders/texture-vertex.glsl", "data/shaders/texture-fragment.glsl");
-    mShaders[kGrid] = mFileLoaderRef.LoadShaderProgram("data/shaders/grid-vertex.glsl", "data/shaders/grid-fragment.glsl");
+    mShaders[kNoSurface] = mFileLoaderRef.loadShaderProgram("data/shaders/basic-vertex.glsl", "data/shaders/gray-fragment.glsl");
+    mShaders[kMonochrome] = mFileLoaderRef.loadShaderProgram("data/shaders/basic-vertex.glsl", "data/shaders/monochrome-fragment.glsl");
+    mShaders[kColored] = mFileLoaderRef.loadShaderProgram("data/shaders/color-vertex.glsl", "data/shaders/color-fragment.glsl");
+    mShaders[kTextured] = mFileLoaderRef.loadShaderProgram("data/shaders/texture-vertex.glsl", "data/shaders/texture-fragment.glsl");
+    mShaders[kGrid] = mFileLoaderRef.loadShaderProgram("data/shaders/grid-vertex.glsl", "data/shaders/grid-fragment.glsl");
 
     mCamera = nullptr;
 	
