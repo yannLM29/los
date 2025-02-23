@@ -2,7 +2,7 @@
 Light OpenGL Scene
 
 # Overview
-LOS is a library that let you create a scene with a camera in which you can place object
+LOS is a library that let you create a scene with a camera in which you can place objects
 with different kind of surfaces.
 Those objects can be scaled, moved or rotated.
 
