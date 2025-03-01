@@ -13,9 +13,17 @@ Renderer::Renderer(IWindow &window_ref, FileLoader &fileloader_ref)
 : mWindowRef(window_ref)
 , mFileLoaderRef(fileloader_ref)
 {
-    if (!gladLoadGLLoader((GLADloadproc)mWindowRef.getProcAdressCallback())) {
-		throw std::runtime_error("Failed to initialize GLAD");
-	}   
+    auto proc_addr_cb = mWindowRef.getProcAdressCallback();
+    if(proc_addr_cb) {
+        if (!gladLoadGLLoader((GLADloadproc)proc_addr_cb)) {
+            throw std::runtime_error("Failed to initialize GLAD");
+        } 
+    } else {
+        if (!gladLoadGL()) {
+            throw std::runtime_error("Failed to initialize GLAD without proc address cb");
+        }
+    }
+      
 
 	glViewport(0, 0, GLsizei(mWindowRef.getWidth()), GLsizei(mWindowRef.getHeight()));
     mWindowRef.setOnResizeCallback([this](int w, int h){
