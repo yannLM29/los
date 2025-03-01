@@ -35,4 +35,5 @@
 /build
 /doc/*
 !doc/class-diagram.png
+!doc/box.gif
 /src/external
