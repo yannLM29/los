@@ -10,3 +10,6 @@ LOS does not provide the open gl context, it has to be used with GLFW, SFLM or Q
 
 # Architecture
 ![Class diagram of LOS](doc/class-diagram.png)
+
+# Preview
+![Basic rotating cube](doc/box.gif)
